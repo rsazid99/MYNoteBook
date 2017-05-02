@@ -1,0 +1,141 @@
+syntax on 
+color dracula
+
+set encoding=utf-8
+set number
+set mouse=a
+set visualbell
+set sidescrolloff=0
+set infercase
+set nocompatible
+
+
+filetype indent plugin on
+filetype plugin on
+
+
+nnoremap <C-Tab> :bn<CR>
+nnoremap <C-S-Tab> :bp<CR>
+
+set guifont=Monaco:h18
+set autoindent  
+
+set tabstop=8    " when indenting with '>', use 4 spaces width
+set shiftwidth=8  " Sets the number of columns for a TAB."
+set expandtab       " Expand TABs to spaces."
+
+set hidden              " remember undo after quitting
+set history=150          " keep 50 lines of command history
+
+map j gj
+map k gk
+
+" Persistent undo
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+
+filetype off 
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" NERDTree Plugin
+Plugin 'https://github.com/scrooloose/nerdtree'
+
+
+" NERDTab Plugin
+Plugin 'https://github.com/jistr/vim-nerdtree-tabs'
+
+" Control P Plugin 
+Plugin 'https://github.com/kien/ctrlp.vim'
+
+" Syntastic Plugin
+Plugin 'https://github.com/scrooloose/syntastic'
+
+" delimitMate Plugin
+Plugin 'https://github.com/Raimondi/delimitMate'
+
+" Vim SuperMan Plugin
+Plugin 'https://github.com/jez/vim-superman'
+
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+
+" vim-airline
+Plugin 'bling/vim-airline'
+
+"EasyMotion
+Plugin 'easymotion/vim-easymotion'
+
+Plugin 'DoxygenToolkit.vim'
+
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-endwise'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'Mizuchi/STL-Syntax'
+Plugin 'tomtom/tcomment_vim'
+
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+
+call vundle#end()            " required
+filetype plugin indent on 
+
+
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
+let g:syntastic_cpp_compiler_options = "-std=c++14"
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" ----- jistr/vim-nerdtree-tabs -----
+" Open/close NERDTree Tabs with \t
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" To have NERDTree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 1
+
+autocmd filetype cpp nnoremap <F6> :!g++ -std=c++14 % -o %:r <CR>
+autocmd filetype cpp nnoremap <F5> :!g++ -std=c++14 % -o %:r && ./%:r <CR>
+
+" --------------------------->>>>>
+"  Airline setup starts here !! 
+"  -------------------------->>>>
+"
+ let g:airline_powerline_fonts = 1
+
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+        endif
+
+    " unicode symbols
+     let g:airline_left_sep = '»' 
+     let g:airline_left_sep = '▶'
+     let g:airline_right_sep = '«'
+     let g:airline_right_sep = '◀'
+     let g:airline_symbols.linenr = '␊'
+     let g:airline_symbols.linenr = '¶'
+     let g:airline_symbols.branch = '⎇'
+     let g:airline_symbols.paste = 'ρ'
+     let g:airline_symbols.paste = 'Þ'
+     let g:airline_symbols.paste = '∥'
+     let g:airline_symbols.whitespace = 'Ξ'
+    
+
+
+" ------------------------------->>>>>>
+"  Airline Plugin setting ends here
+"-------------------------------->>>>>>
