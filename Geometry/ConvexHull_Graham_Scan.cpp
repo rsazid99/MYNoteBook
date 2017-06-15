@@ -20,7 +20,7 @@ int orientation(Point a, Point b, Point c)
         return (val > 0) ? 1 : 2;
 }
 
-int sqrDist(Point a, Point b)  {
+ll sqrDist(Point a, Point b)  {
         ll dx = a.x - b.x, dy = a.y - b.y;
         return dx * dx + dy * dy;
 }
