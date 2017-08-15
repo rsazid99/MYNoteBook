@@ -1,3 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define maxn 100010
+#define ff first
+#define ss second
+#define MSET(a, x) memset(a, x, sizeof a)
+#define FOR(i, a, b) for(int i = a; i <= b; i ++)
+#define FORR(i, a, b) for(int i = a; i < b; i ++)
+#define inf 1061109567
+#define pb push_back
+
+typedef pair <int, int> ii;
+
 int n, m, x, y, z;
 int dist[maxn];
 vector<ii> adj[maxn];
@@ -35,7 +49,7 @@ int main()
         //write();
         int t;
         scanf("%d", &t);
-
+		
         while(t --){
                 scanf("%d %d", &n, &m);
 
