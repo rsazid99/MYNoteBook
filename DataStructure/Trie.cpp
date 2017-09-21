@@ -81,15 +81,13 @@ int main()
 {
 
         int tt = 1;
-        while(scanf("%d", &n)){
+        while(scanf("%d\n", &n)){
                 if(n == 0) break;
 
                 newNode(true);
                 ll ans = 0;
                 for(int i = 0; i < n; i ++){
-                        scanf("%s", s[i]);
-                }
-                for(int i = 0; i < n; i ++){
+                        gets(s[i]);
                         insert(s[i], strlen(s[i]));
                 }
 
